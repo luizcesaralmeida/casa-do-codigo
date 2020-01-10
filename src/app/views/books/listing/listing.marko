@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Casa do Código</title>
+    </head>
+    <body>
+        <h1>Listagem dos livros</h1>   
+        <span if(data.error)>${data.error}</span>   
+            <table if(!data.error) id="livros">
+            <tr>
+                <td>ID</td>
+                <td>Título</td>
+                <td>Preço</td>
+                <td>Editar</td>
+                <td>Remover</td>
+            </tr>
+            <tr id="livro_${livro.id}" for (livro in data.livros)> 
+                <td>${livro.id}</td>
+                <td>${livro.titulo}</td>
+                <td>${livro.preco}</td>
+                <td><a href="livros/form/${livro.id}">Editar</a></td> 
+                <td><a href="#" data-ref="${livro.id}" data-type="remocao">Remover</a></td> 
+            </tr>
+        </table> 
+        <script src="static/js/remove-livro.js">
+        </script> 
+    </body>
+</html>
